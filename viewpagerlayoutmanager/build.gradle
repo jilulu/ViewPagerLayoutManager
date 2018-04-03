@@ -2,7 +2,8 @@ import groovy.json.JsonBuilder
 
 apply plugin: 'com.android.library'
 
-apply plugin: 'com.github.dcendents.android-maven' group = 'com.github.jilulu'
+apply plugin: 'com.github.dcendents.android-maven'
+group = 'com.github.jilulu'
 
 android {
     compileSdkVersion 26
