@@ -12,7 +12,7 @@ import android.widget.Scroller;
  * Used by {@link AutoPlayRecyclerView} to implement auto play effect
  */
 
-class AutoPlaySnapHelper extends CenterSnapHelper {
+class AutoPlaySnapHelper extends PageSnapHelper {
     final static int TIME_INTERVAL = 2000;
 
     final static int LEFT = 1;
