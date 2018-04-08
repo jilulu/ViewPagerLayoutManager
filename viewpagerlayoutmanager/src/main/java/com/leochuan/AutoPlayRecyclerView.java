@@ -34,18 +34,18 @@ public class AutoPlayRecyclerView extends RecyclerView {
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
         boolean result = super.dispatchTouchEvent(ev);
-        if (result) { // consumed touch event
-            switch (ev.getAction()) {
-                case MotionEvent.ACTION_DOWN:
-                    if (autoPlaySnapHelper != null) {
-                        autoPlaySnapHelper.pause();
-                    }
-                    break;
-                case MotionEvent.ACTION_UP:
-                    if (autoPlaySnapHelper != null) {
-                        autoPlaySnapHelper.start();
-                    }
-            }
+        switch (ev.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                if (autoPlaySnapHelper != null) {
+                    autoPlaySnapHelper.pause();
+                }
+                break;
+            case MotionEvent.ACTION_UP:
+            case MotionEvent.ACTION_CANCEL:
+                if (autoPlaySnapHelper != null) {
+                    autoPlaySnapHelper.start();
+                }
+                break;
         }
         return result;
     }
