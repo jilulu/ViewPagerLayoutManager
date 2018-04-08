@@ -61,4 +61,15 @@ public class AutoPlayRecyclerView extends RecyclerView {
         super.setLayoutManager(layout);
         autoPlaySnapHelper.attachToRecyclerView(this);
     }
+
+    public void setIntervalAndDirection(int timeInterval, int direction) {
+        if (autoPlaySnapHelper != null) { // detach
+            autoPlaySnapHelper.pause();
+            setOnFlingListener(null);
+        }
+        autoPlaySnapHelper = new AutoPlaySnapHelper(timeInterval, direction);
+        if (getLayoutManager() != null) {
+            autoPlaySnapHelper.attachToRecyclerView(this);
+        }
+    }
 }
